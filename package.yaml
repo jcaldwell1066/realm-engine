@@ -117,6 +117,19 @@ executables:
     - text
     - transformers
 
+  realm-boxes-exporter:
+    main: Main.hs
+    source-dirs: realm-boxes-exporter
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - adventure-engine
+    - bytestring
+    - postgresql-simple
+    - text
+
 tests:
   adventure-engine-test:
     main:                Spec.hs
@@ -129,6 +142,7 @@ tests:
     - adventure-engine
     - containers
     - hspec
+    - hspec-discover
     - mtl
     - postgresql-simple
     - text
