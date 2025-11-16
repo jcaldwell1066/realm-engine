@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 module RealmDSL where
 
@@ -7,6 +8,7 @@ import qualified Data.Map.Strict as M
 import Data.Maybe (fromMaybe)
 -- import System.Process (callCommand)  -- Hidden package, not needed for DSL demos
 import System.IO (hFlush, stdout)
+import Prelude hiding (take)
 
 -- Game state (mutable reference in practice)
 type GameState = World
