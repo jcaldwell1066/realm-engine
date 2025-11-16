@@ -1,0 +1,201 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           adventure-engine
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/agentultra/adventure-engine#readme>
+homepage:       https://github.com/agentultra/adventure-engine#readme
+bug-reports:    https://github.com/agentultra/adventure-engine/issues
+author:         James King
+maintainer:     james@agentultra.com
+copyright:      2020 James King
+license:        BSD-3-Clause
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+    LICENSE
+
+source-repository head
+  type: git
+  location: https://github.com/agentultra/adventure-engine
+
+library
+  exposed-modules:
+      Adventure.Data.Map.Util
+      Adventure.Engine
+      Adventure.Engine.Database
+      Adventure.Engine.Database.Connection
+      Adventure.Engine.Database.Loader
+      Adventure.Engine.Database.Saver
+      Adventure.Engine.ImageData
+      Adventure.Engine.Language
+      Adventure.Engine.Objects
+      Adventure.Engine.Rewards
+      Adventure.GUI
+      Adventure.GUI.Widgets.Keystroke
+      Adventure.List.Utils
+      Maker
+      Maker.Parser
+      Maker.SQL
+      RealmDSL
+      RealmMap
+  other-modules:
+      Paths_adventure_engine
+  autogen-modules:
+      Paths_adventure_engine
+  hs-source-dirs:
+      src
+  default-extensions:
+      LambdaCase
+      OverloadedStrings
+  build-depends:
+      JuicyPixels
+    , aeson
+    , base >=4.7 && <5
+    , brick
+    , bytestring
+    , bytestring-to-vector
+    , containers
+    , data-default
+    , directory
+    , errors
+    , filepath
+    , haskeline
+    , lens
+    , megaparsec
+    , monomer
+    , mtl
+    , postgresql-simple
+    , text
+    , vty
+    , zip
+  default-language: Haskell2010
+
+executable adventure-cli
+  main-is: Main.hs
+  other-modules:
+      Paths_adventure_engine
+  autogen-modules:
+      Paths_adventure_engine
+  hs-source-dirs:
+      adventure-cli
+  default-extensions:
+      LambdaCase
+      OverloadedStrings
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      adventure-engine
+    , ansi-terminal
+    , base >=4.7 && <5
+    , lens
+    , mtl
+    , text
+    , transformers
+  default-language: Haskell2010
+
+executable adventure-engine-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_adventure_engine
+  autogen-modules:
+      Paths_adventure_engine
+  hs-source-dirs:
+      app
+  default-extensions:
+      LambdaCase
+      OverloadedStrings
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      adventure-engine
+    , base >=4.7 && <5
+    , text
+  default-language: Haskell2010
+
+executable adventure-maker
+  main-is: Main.hs
+  other-modules:
+      Paths_adventure_engine
+  autogen-modules:
+      Paths_adventure_engine
+  hs-source-dirs:
+      adventure-maker
+  default-extensions:
+      LambdaCase
+      OverloadedStrings
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      adventure-engine
+    , base >=4.7 && <5
+    , text
+  default-language: Haskell2010
+
+executable adventure-tui
+  main-is: Main.hs
+  other-modules:
+      Paths_adventure_engine
+  autogen-modules:
+      Paths_adventure_engine
+  hs-source-dirs:
+      adventure-tui
+  default-extensions:
+      LambdaCase
+      OverloadedStrings
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      adventure-engine
+    , base >=4.7 && <5
+    , brick
+    , containers
+    , lens
+    , text
+    , text-zipper
+    , vty
+  default-language: Haskell2010
+
+executable world-loader
+  main-is: Main.hs
+  other-modules:
+      Paths_adventure_engine
+  autogen-modules:
+      Paths_adventure_engine
+  hs-source-dirs:
+      world-loader
+  default-extensions:
+      LambdaCase
+      OverloadedStrings
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      adventure-engine
+    , base >=4.7 && <5
+    , containers
+    , postgresql-simple
+    , text
+  default-language: Haskell2010
+
+test-suite adventure-engine-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_adventure_engine
+  autogen-modules:
+      Paths_adventure_engine
+  hs-source-dirs:
+      test
+  default-extensions:
+      LambdaCase
+      OverloadedStrings
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      adventure-engine
+    , base >=4.7 && <5
+    , containers
+    , hspec
+    , mtl
+    , postgresql-simple
+    , text
+  default-language: Haskell2010

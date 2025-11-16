@@ -17,7 +17,7 @@
 #
 # resolver: ./custom-snapshot.yaml
 # resolver: https://example.com/snapshots/2018-01-01.yaml
-resolver: lts-22.44  # Updated for Monomer 1.6.0.1 (WSLg fix)
+resolver: lts-21.25  # GHC 9.4.7 (using system GHC)
 
 # Allow newer versions for packages with tight constraints
 allow-newer: true
@@ -57,7 +57,7 @@ extra-deps:
 # extra-package-dbs: []
 
 # Control whether we use the GHC we find on the path
-# system-ghc: true
+system-ghc: true
 #
 # Require a specific version of stack, using version ranges
 # require-stack-version: -any # Default
