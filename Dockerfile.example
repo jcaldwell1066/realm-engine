@@ -1,0 +1,127 @@
+# Realm Engine - Haskell Adventure Game Container
+# Based on WSL Ubuntu 24.04 package inventory
+
+FROM ubuntu:24.04
+
+LABEL maintainer="realm-engine"
+LABEL description="Haskell adventure game engine with GUI support"
+
+# Avoid interactive prompts during build
+ENV DEBIAN_FRONTEND=noninteractive
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
+# Install system dependencies matching WSL environment
+RUN apt-get update && apt-get install -y \
+    # Build essentials
+    build-essential \
+    curl \
+    wget \
+    git \
+    ca-certificates \
+    gnupg \
+    # Core Haskell dependencies
+    libgmp-dev \
+    libffi-dev \
+    libncurses-dev \
+    libtinfo-dev \
+    zlib1g-dev \
+    # Graphics and GUI libraries (for monomer, brick, vty)
+    libgl1-mesa-dev \
+    libx11-dev \
+    libxext-dev \
+    libxrender-dev \
+    libxrandr-dev \
+    libxinerama-dev \
+    libxcursor-dev \
+    libxi-dev \
+    libxft-dev \
+    libfreetype6-dev \
+    libfontconfig1-dev \
+    libcairo2-dev \
+    libpango1.0-dev \
+    libpixman-1-dev \
+    mesa-common-dev \
+    # PostgreSQL support
+    postgresql-client \
+    libpq-dev \
+    # Image processing (for JuicyPixels)
+    libpng-dev \
+    libjpeg-dev \
+    libwebp-dev \
+    # Compression libraries
+    libbz2-dev \
+    liblzma-dev \
+    # Security and networking
+    libssl-dev \
+    # Text processing
+    libpcre2-dev \
+    # Additional utilities
+    pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Stack build tool
+ENV STACK_VERSION=2.15.1
+RUN curl -sSL https://get.haskellstack.org/ | sh \
+    || wget -qO- https://github.com/commercialhaskell/stack/releases/download/v${STACK_VERSION}/stack-${STACK_VERSION}-linux-x86_64.tar.gz \
+    | tar xz --strip-components=1 -C /usr/local/bin
+
+# Set up working directory
+WORKDIR /app
+
+# Copy project files
+COPY stack.yaml package.yaml ./
+COPY LICENSE README.md ATTRIBUTION.md ./
+
+# Pre-install dependencies (cache layer)
+RUN stack setup
+RUN stack build --only-dependencies
+
+# Copy source code
+COPY src ./src
+COPY app ./app
+COPY adventure-cli ./adventure-cli
+COPY adventure-maker ./adventure-maker
+COPY data ./data
+COPY tools ./tools
+
+# Build the project
+RUN stack build
+
+# Install binaries to /usr/local/bin
+RUN stack install
+
+# Set up runtime environment
+ENV PATH="/root/.local/bin:${PATH}"
+
+# Default command: show help
+CMD ["adventure-cli", "--help"]
+
+# -------------------------------------------
+# Usage Examples:
+# -------------------------------------------
+#
+# Build the container:
+#   docker build -t realm-engine -f Dockerfile.example .
+#
+# Run the example adventure:
+#   docker run -it realm-engine adventure-cli data/example-adventure/world.txt
+#
+# Run with X11 forwarding (for GUI apps):
+#   docker run -it \
+#     -e DISPLAY=$DISPLAY \
+#     -v /tmp/.X11-unix:/tmp/.X11-unix \
+#     realm-engine adventure-tui
+#
+# Development mode (mount source):
+#   docker run -it \
+#     -v $(pwd):/app \
+#     realm-engine \
+#     bash
+#
+# Run with PostgreSQL:
+#   docker run -it \
+#     --link postgres:db \
+#     -e PGHOST=db \
+#     realm-engine world-loader
+#

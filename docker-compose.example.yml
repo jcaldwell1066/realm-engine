@@ -1,0 +1,155 @@
+# Docker Compose configuration for Realm Engine
+# Based on WSL Ubuntu 24.04 package inventory
+
+version: '3.8'
+
+services:
+  # PostgreSQL database for game state
+  db:
+    image: postgres:16
+    container_name: realm-db
+    environment:
+      POSTGRES_DB: adventure_engine
+      POSTGRES_USER: realm
+      POSTGRES_PASSWORD: realm_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - realm-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U realm"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Realm Engine application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.example
+    container_name: realm-engine
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # PostgreSQL connection
+      PGHOST: db
+      PGPORT: 5432
+      PGDATABASE: adventure_engine
+      PGUSER: realm
+      PGPASSWORD: realm_pass
+      # X11 for GUI apps
+      DISPLAY: ${DISPLAY:-:0}
+    volumes:
+      # Mount for development
+      - .:/app
+      # X11 socket for GUI
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+    networks:
+      - realm-network
+    stdin_open: true
+    tty: true
+    command: bash
+
+  # Adventure CLI runner
+  adventure-cli:
+    build:
+      context: .
+      dockerfile: Dockerfile.example
+    container_name: realm-cli
+    volumes:
+      - ./data:/app/data:ro
+    networks:
+      - realm-network
+    stdin_open: true
+    tty: true
+    command: adventure-cli /app/data/example-adventure/world.txt
+
+  # World loader (loads game data into PostgreSQL)
+  world-loader:
+    build:
+      context: .
+      dockerfile: Dockerfile.example
+    container_name: realm-loader
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PGHOST: db
+      PGPORT: 5432
+      PGDATABASE: adventure_engine
+      PGUSER: realm
+      PGPASSWORD: realm_pass
+    volumes:
+      - ./data:/app/data:ro
+    networks:
+      - realm-network
+    command: world-loader /app/data/example-adventure/world.txt
+
+  # Adventure TUI (Terminal UI)
+  adventure-tui:
+    build:
+      context: .
+      dockerfile: Dockerfile.example
+    container_name: realm-tui
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PGHOST: db
+      PGPORT: 5432
+      PGDATABASE: adventure_engine
+      PGUSER: realm
+      PGPASSWORD: realm_pass
+      DISPLAY: ${DISPLAY:-:0}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+    networks:
+      - realm-network
+    stdin_open: true
+    tty: true
+    command: adventure-tui
+
+networks:
+  realm-network:
+    driver: bridge
+
+volumes:
+  pgdata:
+    driver: local
+
+# -------------------------------------------
+# Usage:
+# -------------------------------------------
+#
+# Start all services:
+#   docker-compose -f docker-compose.example.yml up
+#
+# Start just the database:
+#   docker-compose -f docker-compose.example.yml up db
+#
+# Run adventure CLI:
+#   docker-compose -f docker-compose.example.yml run adventure-cli
+#
+# Load world data into database:
+#   docker-compose -f docker-compose.example.yml run world-loader
+#
+# Start TUI with X11:
+#   xhost +local:docker  # Allow docker to connect to X11
+#   docker-compose -f docker-compose.example.yml run adventure-tui
+#   xhost -local:docker  # Revoke access when done
+#
+# Development mode:
+#   docker-compose -f docker-compose.example.yml run app
+#   # Inside container: stack build, stack test, etc.
+#
+# Clean up:
+#   docker-compose -f docker-compose.example.yml down
+#   docker-compose -f docker-compose.example.yml down -v  # Also remove volumes
+#
+# Rebuild after changes:
+#   docker-compose -f docker-compose.example.yml build
+#   docker-compose -f docker-compose.example.yml up --build
+#
