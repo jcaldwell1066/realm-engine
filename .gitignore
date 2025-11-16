@@ -1,0 +1,9 @@
+.stack-work/
+*~
+*todo*
+
+# Generated world files
+data/*/world.json
+data/*/world.sql
+data/*/build/
+__pycache__/
