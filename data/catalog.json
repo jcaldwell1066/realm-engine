@@ -1,0 +1,52 @@
+{
+  "version": "1.0.0",
+  "description": "Catalog of all available Realm Engine world files",
+  "realms": [
+    {
+      "id": "example-adventure",
+      "name": "Example Adventure",
+      "description": "A classic escape-the-house adventure demonstrating core Realm Engine features including locked doors, containers, hidden items, and puzzle-solving.",
+      "category": "tutorial",
+      "difficulty": "beginner",
+      "estimatedMinutes": 10,
+      "rooms": 6,
+      "objects": 4,
+      "author": "Realm Engine Team",
+      "version": "1.0.0",
+      "created": "2025-01-15",
+      "tags": ["escape-room", "puzzle", "tutorial", "single-player"],
+      "features": ["locked-doors", "containers", "hidden-items", "digging", "key-collection"],
+      "path": "example-adventure",
+      "learningObjectives": [
+        "Basic navigation and movement",
+        "Item collection and inventory management",
+        "Lock and key mechanics",
+        "Container interactions",
+        "Hidden item discovery"
+      ]
+    },
+    {
+      "id": "trust-bridge",
+      "name": "The Trust Bridge",
+      "description": "A collaborative puzzle experience where teams must share information discovered in separate chambers to unlock a bridge together. Perfect for teaching the importance of communication, information sharing, and trust in teamwork.",
+      "category": "team-building",
+      "difficulty": "beginner",
+      "estimatedMinutes": 15,
+      "rooms": 5,
+      "objects": 4,
+      "author": "Realm Engine Team",
+      "version": "1.0.0",
+      "created": "2025-11-16",
+      "tags": ["team-building", "collaboration", "communication", "trust", "puzzle", "multi-player"],
+      "features": ["locked-doors", "containers", "information-gathering", "combination-puzzle", "shared-objectives"],
+      "path": "trust-bridge",
+      "learningObjectives": [
+        "Practice clear communication of discovered information",
+        "Experience the value of exploring different paths and sharing findings",
+        "Understand that some challenges require multiple perspectives",
+        "Build trust through collaborative problem-solving",
+        "Learn to combine individual discoveries into team solutions"
+      ]
+    }
+  ]
+}
