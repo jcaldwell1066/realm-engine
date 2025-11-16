@@ -1,0 +1,13 @@
+[
+  {
+    "gameEndEvent": {
+      "tag": "PlayerMoved",
+      "contents": [
+        {"getEntityId": 1},
+        {"getEntityId": 2}
+      ]
+    },
+    "gameEndTitle": "You Win!",
+    "gameEndText": "Congratulations! You've completed the adventure."
+  }
+]

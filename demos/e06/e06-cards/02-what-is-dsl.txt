@@ -1,0 +1,9 @@
+WHAT IS A DSL?
+
+Domain-Specific Language
+
+A language designed for a specific problem:
+  SQL → Databases
+  HTML → Documents
+  CSS → Styling
+  Game Commands → Adventures!

@@ -1,0 +1,7 @@
+THE HASKELL DSL STACK
+
+world.txt → Megaparsec Parser → Typed Data → Game Engine
+
+All type-safe
+All functional
+All Haskell

@@ -1,0 +1,6 @@
+COMMAND: look
+
+Megaparsec parsing...
+Game engine executing...
+
+See the room description below!

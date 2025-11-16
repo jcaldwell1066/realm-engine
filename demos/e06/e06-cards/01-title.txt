@@ -1,0 +1,5 @@
+EPISODE 6
+
+THE HASKELL DSL ADVENTURE
+
+Megaparsec Parser in Action

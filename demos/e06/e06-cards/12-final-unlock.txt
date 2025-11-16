@@ -1,0 +1,7 @@
+COMMAND: use Paper Note on Treasure Chest
+
+Container with lock
+Validation: Check key matches
+Result: Chest UNLOCKED ✓
+
+Gold Coin revealed!

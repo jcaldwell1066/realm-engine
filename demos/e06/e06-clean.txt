@@ -1,0 +1,26 @@
+# E06 Clean Take - Verified Commands Only
+look
+WAIT 1
+pickup Rusty Key
+WAIT 1
+inventory
+WAIT 1
+walk Front Door
+WAIT 1
+look
+WAIT 1
+walk Kitchen Door
+WAIT 1
+dig
+WAIT 1
+pickup Paper Note
+WAIT 1
+walk Kitchen Door Return
+WAIT 1
+walk Library Door
+WAIT 1
+use Paper Note on Treasure Chest
+WAIT 1
+pickup Gold Coin
+WAIT 1
+inventory

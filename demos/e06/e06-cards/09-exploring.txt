@@ -1,0 +1,8 @@
+EXPLORING THE HOUSE
+
+New room: Main Hallway
+New exits available:
+  • Kitchen Door
+  • Library Door
+
+The AST is the game world!

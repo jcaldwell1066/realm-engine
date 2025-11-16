@@ -1,0 +1,53 @@
+# E06 - Winning Path (Correct Commands)
+# Demonstrates Megaparsec DSL parser
+
+# Start - at Front Porch
+look
+WAIT 2
+
+# Pick up the key
+pickup Rusty Key
+WAIT 2
+
+# Unlock the front door
+use Rusty Key on Front Door
+WAIT 2
+
+# Enter the house
+walk Front Door
+WAIT 2
+
+# Check new location
+look
+WAIT 2
+
+# Go to kitchen
+walk Kitchen Door
+WAIT 2
+
+# Dig for the note
+dig
+WAIT 3
+
+# Take the combination
+pickup Paper Note
+WAIT 2
+
+# Back to hallway
+walk Kitchen Door Return
+WAIT 2
+
+# Go to library
+walk Library Door
+WAIT 2
+
+# Unlock the treasure chest
+use Paper Note on Treasure Chest
+WAIT 2
+
+# Get the gold!
+pickup Gold Coin
+WAIT 2
+
+# Victory check
+inventory

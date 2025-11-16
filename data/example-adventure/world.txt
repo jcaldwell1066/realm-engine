@@ -1,0 +1,158 @@
+[GameObjects]
+# 1. Rusty Key
+
+A rusty old key with teeth worn smooth by age.
+#
+-- Type: Item
+-- Size: 1
+-- Weight: 1
+
+# 2. Paper Note
+
+A crumpled piece of paper with "1234" scrawled on it in faded ink.
+#
+-- Type: Item
+-- Size: 1
+-- Weight: 1
+
+# 3. Gold Coin
+
+A heavy gold coin that gleams in the light. Worth a fortune!
+#
+-- Type: Item
+-- Size: 1
+-- Weight: 3
+
+# 4. Treasure Chest
+
+An ornate wooden chest with a combination lock on the front.
+#
+-- Type: Container
+-- Size: 10
+-- Items: (3. Gold Coin)
+-- Lock:
+--   Keys: (2. Paper Note)
+--   FailMsg: The chest is locked tight! You need the combination.
+--   SuccessMsg: The combination works! The lock clicks open.
+--   UnlockedDesc: The chest is open, revealing a gleaming gold coin inside.
+--   State: Locked
+
+[Rooms]
+# 1. The Front Porch
+
+You stand on a weathered wooden porch. The paint is peeling and the boards creak beneath your feet. A rusty key lies discarded in the corner. The front door looms before you.
+#
+-- Exits: (1. Front Door)
+-- Objects: (1. Rusty Key)
+
+# 2. Main Hallway
+
+You enter a grand hallway with faded wallpaper and a dusty chandelier overhead. Portraits of stern-faced ancestors line the walls. To your left is the kitchen door, and to your right, a door leading to the library.
+#
+-- Exits: (10. Front Door Return), (2. Kitchen Door), (3. Library Door)
+-- Objects:
+
+# 3. Kitchen
+
+A dated kitchen with chipped tiles and old wooden cabinets. The smell of must hangs in the air. A back door leads to the yard. Something about the floorboards looks suspicious...
+#
+-- Exits: (8. Kitchen Door Return), (4. Back Door)
+-- Objects:
+-- Dig: [You pry up a loose floorboard and find something hidden underneath! || (2. Paper Note)], [You search more but find nothing else.]
+
+# 4. Library
+
+Towering bookshelves line the walls, filled with leather-bound volumes thick with dust. A large ornate chest sits in the corner, its combination lock gleaming.
+#
+-- Exits: (9. Library Door Return)
+-- Objects: (4. Treasure Chest)
+
+# 5. Back Yard
+
+You step into an overgrown yard. Weeds push through cracked paving stones, and an old fence surrounds the property. There's a gate in the fence leading to freedom.
+#
+-- Exits: (7. Back Door Return), (5. Fence Gate)
+-- Objects:
+
+# 6. Outside
+
+You've made it outside! The fresh air hits your face as you step onto the open street. You're free!
+#
+-- Exits: (6. Fence Gate Return)
+-- Objects:
+
+[Exits]
+# 1. Front Door
+
+A heavy oak door with peeling red paint. It looks locked.
+#
+-- From: (1. The Front Porch)
+-- To: (2. Main Hallway)
+-- Lock:
+--   Keys: (1. Rusty Key)
+--   FailMsg: The door is locked tight. You need a key!
+--   SuccessMsg: The rusty key turns in the lock with a satisfying click!
+--   State: Locked
+
+# 2. Kitchen Door
+
+A simple wooden door leading to the kitchen.
+#
+-- From: (2. Main Hallway)
+-- To: (3. Kitchen)
+
+# 3. Library Door
+
+A stately door with frosted glass panels leading to the library.
+#
+-- From: (2. Main Hallway)
+-- To: (4. Library)
+
+# 4. Back Door
+
+A screen door leading to the back yard. It squeaks on rusty hinges.
+#
+-- From: (3. Kitchen)
+-- To: (5. Back Yard)
+
+# 5. Fence Gate
+
+An old wooden gate in the fence. It swings freely - your path to freedom!
+#
+-- From: (5. Back Yard)
+-- To: (6. Outside)
+
+# 6. Fence Gate Return
+
+The gate swings both ways, leading back to the yard.
+#
+-- From: (6. Outside)
+-- To: (5. Back Yard)
+
+# 7. Back Door Return
+
+The screen door from the yard.
+#
+-- From: (5. Back Yard)
+-- To: (3. Kitchen)
+
+# 8. Kitchen Door Return
+
+The kitchen door from the kitchen side.
+#
+-- From: (3. Kitchen)
+-- To: (2. Main Hallway)
+
+# 9. Library Door Return
+
+The library door from inside the library.
+#
+-- From: (4. Library)
+-- To: (2. Main Hallway)
+
+# 10. Front Door Return
+
+The front door from inside the house.
+#
+-- From: (2. Main Hallway)
+-- To: (1. The Front Porch)

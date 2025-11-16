@@ -1,0 +1,9 @@
+EPISODE 6 COMPLETE
+
+The Haskell DSL Adventure
+
+Megaparsec Parser ✓
+Type-Safe Engine ✓
+Feedback Loops ✓
+
+From text files to typed game worlds!

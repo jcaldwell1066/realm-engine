@@ -1,0 +1,8 @@
+# E06 Part 3: Natural Language (if supported)
+# These would map to DSL commands
+# For now, use precise commands to show the mapping
+look
+WAIT 1
+pickup Rusty Key
+WAIT 1
+inventory

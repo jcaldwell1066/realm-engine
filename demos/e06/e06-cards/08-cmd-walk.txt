@@ -1,0 +1,7 @@
+COMMAND: walk Front Door
+
+Parser: walk + exit name
+Engine: Check lock state (unlocked!)
+Action: Move player to new room
+
+State transition happening!

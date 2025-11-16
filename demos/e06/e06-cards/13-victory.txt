@@ -1,0 +1,13 @@
+VICTORY! 🎉
+
+pickup Gold Coin
+
+The treasure is ours!
+
+DSL Demonstrated:
+  ✓ Parser
+  ✓ Engine
+  ✓ Locks
+  ✓ Dig
+  ✓ Containers
+  ✓ Feedback Loop

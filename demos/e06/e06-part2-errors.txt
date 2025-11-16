@@ -1,0 +1,25 @@
+# E06 Part 2: Error Handling
+# Invalid verb
+jump over wall
+WAIT 2
+# Item not here
+pickup Diamond Ring
+WAIT 2
+# Door still locked (demo)
+walk Front Door
+WAIT 2
+# Now unlock and succeed
+use Rusty Key on Front Door
+WAIT 1
+walk Front Door
+WAIT 2
+# Wrong key
+use Gold Coin on Treasure Chest
+WAIT 2
+# Can't dig everywhere
+dig
+WAIT 2
+# Valid dig location
+walk Kitchen Door
+WAIT 1
+dig

@@ -1,0 +1,7 @@
+READY TO PLAY
+
+World loaded: example-adventure
+Parser ready: Maker.Parser.hs
+Engine ready: Adventure.Engine
+
+Watch below for commands...

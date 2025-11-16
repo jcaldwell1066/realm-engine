@@ -1,0 +1,9 @@
+COMMAND: dig
+
+Special mechanic!
+
+Room has dig definition
+Parser recognizes command
+Engine reveals hidden item
+
+Paper Note found!

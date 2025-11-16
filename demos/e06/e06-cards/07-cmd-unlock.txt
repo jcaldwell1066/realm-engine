@@ -1,0 +1,7 @@
+COMMAND: use Rusty Key on Front Door
+
+Parser: use + item + on + target
+Engine: Check lock requirements
+Result: Door UNLOCKED ✓
+
+The feedback loop in action!

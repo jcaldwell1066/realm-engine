@@ -1,0 +1,7 @@
+COMMAND: pickup Rusty Key
+
+Parser: pickup + object name
+Engine: Check item exists ✓
+Action: Add to inventory
+
+Watch the key disappear from room!
