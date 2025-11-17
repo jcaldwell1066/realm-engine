@@ -1,0 +1,13 @@
+[
+  {
+    "gameEndEvent": {
+      "tag": "PlayerMoved",
+      "contents": [
+        {"getEntityId": 4},
+        {"getEntityId": 5}
+      ]
+    },
+    "gameEndTitle": "Bridge Crossed!",
+    "gameEndText": "Congratulations! Through collaboration and trust, you've solved a puzzle that cannot be solved alone. You've learned that some challenges require combining different perspectives and discoveries. Well done!"
+  }
+]

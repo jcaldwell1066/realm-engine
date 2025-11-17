@@ -1,0 +1,30 @@
+{
+  "id": "example-adventure",
+  "name": "Example Adventure",
+  "description": "A classic escape-the-house adventure demonstrating core Realm Engine features including locked doors, containers, hidden items, and puzzle-solving.",
+  "category": "tutorial",
+  "difficulty": "beginner",
+  "estimatedMinutes": 10,
+  "rooms": 6,
+  "objects": 4,
+  "author": "Realm Engine Team",
+  "version": "1.0.0",
+  "created": "2025-01-15",
+  "tags": ["escape-room", "puzzle", "tutorial", "single-player"],
+  "features": ["locked-doors", "containers", "hidden-items", "digging", "key-collection"],
+  "learningObjectives": [
+    "Basic navigation and movement",
+    "Item collection and inventory management",
+    "Lock and key mechanics",
+    "Container interactions",
+    "Hidden item discovery"
+  ],
+  "walkthrough": [
+    "1. Pick up the Rusty Key from the Front Porch",
+    "2. Unlock and open the Front Door",
+    "3. Go to the Kitchen and dig to find the Paper Note",
+    "4. Go to the Library and use the Paper Note to unlock the Treasure Chest",
+    "5. Take the Gold Coin from the chest",
+    "6. Exit through the Back Yard and Fence Gate to win"
+  ]
+}

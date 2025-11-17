@@ -1,0 +1,142 @@
+[GameObjects]
+# 1. Stone Tablet (East)
+
+An ancient stone tablet with strange symbols carved into its surface. The inscription reads: "TRUST begins the journey."
+#
+-- Type: Item
+-- Size: 2
+-- Weight: 5
+
+# 2. Brass Plaque (West)
+
+A polished brass plaque mounted on the wall. It bears the inscription: "UNITY completes the path."
+#
+-- Type: Item
+-- Size: 1
+-- Weight: 2
+
+# 3. Ancient Journal
+
+A weathered leather journal left by previous travelers. Its pages contain wisdom about teamwork.
+#
+-- Type: Item
+-- Size: 1
+-- Weight: 1
+
+# 4. Bridge Mechanism
+
+A complex mechanical device with two inscription slots. It appears to control the bridge's stability. The slots are labeled "FOUNDATION" and "DESTINATION".
+#
+-- Type: Container
+-- Size: 20
+-- Items:
+-- Lock:
+--   Keys: (1. Stone Tablet), (2. Brass Plaque)
+--   FailMsg: The mechanism remains locked. Perhaps you need both the foundation and the destination...
+--   SuccessMsg: As you place both artifacts into their slots, the mechanism whirs to life! The bridge solidifies and glows with ancient power. You may now cross safely!
+--   UnlockedDesc: The mechanism hums with energy. The bridge is now stable and safe to cross.
+--   State: Locked
+
+[Rooms]
+# 1. The Entrance Hall
+
+You stand in a grand entrance hall lit by shafts of sunlight filtering through high windows. Ancient murals on the walls depict teams of people working together to overcome great challenges. Three passages branch out from here: one to the east, one to the west, and one straight ahead.
+
+A weathered journal lies on a pedestal in the center of the room.
+#
+-- Exits: (1. Eastern Passage), (2. Western Passage), (3. Forward Path)
+-- Objects: (3. Ancient Journal)
+
+# 2. The East Chamber
+
+You enter a chamber carved from solid rock. The air is cool and still. Sunlight streams through a crack in the ceiling, illuminating an ancient stone tablet resting on a stone plinth. The inscription speaks of beginnings and foundations.
+#
+-- Exits: (4. Return West)
+-- Objects: (1. Stone Tablet (East))
+
+# 3. The West Chamber
+
+This chamber is warmer, its walls lined with bronze fixtures that still gleam despite their age. A brass plaque hangs prominently on the wall, its polished surface catching the light. The inscription speaks of endings and destinations.
+#
+-- Exits: (5. Return East)
+-- Objects: (2. Brass Plaque (West))
+
+# 4. The Bridge Chamber
+
+You emerge onto a vast platform overlooking a deep chasm. Before you stretches an ancient stone bridge, but it shimmers and flickers - clearly unstable. At the near end of the bridge stands a mechanical device with two slots. A sign reads: "Trust is the foundation. Unity is the destination. Together, they make the bridge solid."
+
+On the far side of the bridge, you can see an exit bathed in golden light.
+#
+-- Exits: (6. Return to Entrance), (7. The Unstable Bridge)
+-- Objects: (4. Bridge Mechanism)
+
+# 5. The Far Side
+
+You've made it! Standing on the far side of the chasm, you look back at the now-solid bridge glowing with ancient magic. Through teamwork, communication, and trust, you solved a puzzle that cannot be solved alone.
+
+The exit ahead leads to new adventures, but more importantly, you've learned that some challenges require us to combine our unique perspectives and discoveries.
+#
+-- Exits: (8. Cross Back)
+-- Objects:
+
+[Exits]
+# 1. Eastern Passage
+
+A stone archway leading east into the shadows.
+#
+-- From: (1. The Entrance Hall)
+-- To: (2. The East Chamber)
+
+# 2. Western Passage
+
+A bronze-framed doorway leading west.
+#
+-- From: (1. The Entrance Hall)
+-- To: (3. The West Chamber)
+
+# 3. Forward Path
+
+The main passage leading toward the bridge.
+#
+-- From: (1. The Entrance Hall)
+-- To: (4. The Bridge Chamber)
+
+# 4. Return West
+
+The passage back to the entrance hall.
+#
+-- From: (2. The East Chamber)
+-- To: (1. The Entrance Hall)
+
+# 5. Return East
+
+The passage returning to the entrance hall.
+#
+-- From: (3. The West Chamber)
+-- To: (1. The Entrance Hall)
+
+# 6. Return to Entrance
+
+The path back to the entrance hall.
+#
+-- From: (4. The Bridge Chamber)
+-- To: (1. The Entrance Hall)
+
+# 7. The Unstable Bridge
+
+The shimmering bridge stretches across the chasm. Without stabilizing it first, crossing would be deadly.
+#
+-- From: (4. The Bridge Chamber)
+-- To: (5. The Far Side)
+-- Lock:
+--   Keys: (4. Bridge Mechanism)
+--   FailMsg: The bridge flickers and shifts dangerously. You dare not step onto it in this unstable state!
+--   SuccessMsg: The bridge is now solid beneath your feet. You cross safely to the far side.
+--   State: Locked
+
+# 8. Cross Back
+
+The now-stable bridge allowing return.
+#
+-- From: (5. The Far Side)
+-- To: (4. The Bridge Chamber)

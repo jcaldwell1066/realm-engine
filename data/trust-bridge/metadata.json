@@ -1,0 +1,52 @@
+{
+  "id": "trust-bridge",
+  "name": "The Trust Bridge",
+  "description": "A collaborative puzzle experience where teams must share information discovered in separate chambers to unlock a bridge together. Perfect for teaching the importance of communication, information sharing, and trust in teamwork.",
+  "category": "team-building",
+  "difficulty": "beginner",
+  "estimatedMinutes": 15,
+  "rooms": 5,
+  "objects": 4,
+  "author": "Realm Engine Team",
+  "version": "1.0.0",
+  "created": "2025-11-16",
+  "tags": ["team-building", "collaboration", "communication", "trust", "puzzle", "multi-player"],
+  "features": ["locked-doors", "containers", "information-gathering", "combination-puzzle", "shared-objectives"],
+  "learningObjectives": [
+    "Practice clear communication of discovered information",
+    "Experience the value of exploring different paths and sharing findings",
+    "Understand that some challenges require multiple perspectives",
+    "Build trust through collaborative problem-solving",
+    "Learn to combine individual discoveries into team solutions"
+  ],
+  "teamBuildingFocus": [
+    "Communication: Teams must verbally share what they find in separate chambers",
+    "Trust: Players must rely on teammates' accurate reporting",
+    "Collaboration: Success requires combining information from multiple sources",
+    "Active Listening: Teams must carefully process shared information"
+  ],
+  "howToFacilitate": [
+    "Divide team into two groups or have them explore separately",
+    "Group A explores East Chamber, Group B explores West Chamber",
+    "Groups must communicate their findings without showing screens",
+    "Together, solve the bridge mechanism puzzle",
+    "Debrief: Discuss how communication and trust enabled success"
+  ],
+  "walkthrough": [
+    "1. Read the Ancient Journal in the Entrance Hall for context",
+    "2. Split exploration: one person/group goes East, another goes West",
+    "3. East Chamber: Pick up the Stone Tablet and note its inscription: 'TRUST begins the journey'",
+    "4. West Chamber: Pick up the Brass Plaque and note its inscription: 'UNITY completes the path'",
+    "5. Share your findings with your team (communication!)",
+    "6. Go to the Bridge Chamber with both items",
+    "7. Use both the Stone Tablet and Brass Plaque on the Bridge Mechanism",
+    "8. Cross the now-stable bridge to victory!"
+  ],
+  "debriefQuestions": [
+    "How did you decide to split up the exploration?",
+    "What communication strategies worked well?",
+    "How did you ensure accurate information sharing?",
+    "What would have happened if one person didn't share their discovery?",
+    "How does this mirror real-world team challenges?"
+  ]
+}
